@@ -1,7 +1,11 @@
 from Utils.data_set_reader import csv_reader
 
-file_name = "titanic_data_set/test.csv"
+file_name = "titanic_data_set/train.csv"
 
-data = csv_reader(file_name)
+columns_to_remove = ["PassengerId", "Ticket", "Cabin", "Embarked", "Name"]
 
-print(data)
+essential_columns = ["Survived", "Pclass", "Sex", "Age", "SibSp", "Parch", "Fare"]
+
+data = csv_reader(file_name, columns_to_remove, essential_columns)
+
+print(len(data))
