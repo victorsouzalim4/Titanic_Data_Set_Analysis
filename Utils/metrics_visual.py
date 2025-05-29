@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from sklearn.metrics import ConfusionMatrixDisplay, classification_report, accuracy_score
+from sklearn.metrics import ConfusionMatrixDisplay, classification_report, accuracy_score, roc_curve, auc
 import os
 import pandas as pd
 
@@ -85,3 +85,39 @@ def save_classification_report_image(y_true, y_pred, class_labels, save_path, ti
     plt.close()
 
     print(f"[INFO] Pretty classification report image saved to: {save_path}")
+
+
+def plot_roc_curve(y_true, y_proba, title='Curve ROC', save_path=None, show=True):
+    """
+    Plota a Curva ROC com AUC para um modelo de classificação binária.
+
+    Parâmetros:
+    - y_true: array-like com os rótulos reais (0 ou 1)
+    - y_proba: array-like com as probabilidades preditas da classe positiva (ex: .predict_proba()[:, 1])
+    - title: título do gráfico (opcional)
+    - save_path: caminho para salvar a imagem (opcional)
+    - show: se True, exibe o gráfico ao final (opcional)
+    """
+
+    # Calcula FPR, TPR e AUC
+    fpr, tpr, _ = roc_curve(y_true, y_proba)
+    roc_auc = auc(fpr, tpr)
+
+    # Plotagem
+    plt.figure(figsize=(8, 6))
+    plt.plot(fpr, tpr, color='darkorange', lw=2, label=f'ROC curve (AUC = {roc_auc:.2f})')
+    plt.plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--', label='Aleatório (AUC = 0.5)')
+    plt.xlim([0.0, 1.0])
+    plt.ylim([0.0, 1.05])
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.title(title)
+    plt.legend(loc="lower right")
+    plt.grid(True)
+
+    if save_path:
+        plt.savefig(save_path, bbox_inches='tight')
+    if show:
+        plt.show()
+    else:
+        plt.close()

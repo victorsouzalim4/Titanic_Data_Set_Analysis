@@ -2,7 +2,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from Utils.data_set_reader import csv_reader
 from Utils.pre_processing import treat_data
-from Utils.metrics_visual import save_confusion_matrix, save_classification_report_image
+from Utils.metrics_visual import save_confusion_matrix, save_classification_report_image, plot_roc_curve
 import pandas as pd 
 
 def random_forest():
@@ -26,11 +26,23 @@ def random_forest():
 
     y_true_clean = y_true.loc[left_indexes]
 
+    # Após prever o modelo com predict_proba no conjunto de teste:
+    y_proba_test = model.predict_proba(X_test)[:, 1]
+
+    plot_roc_curve(
+        y_true=y_true_clean,
+        y_proba=y_proba_test,
+        title='Curva ROC - Random Forest (Test)',
+        save_path='Analysis/Random_Forest/roc_curve_rf_test.png',
+        show=True
+    )
+
+
     save_confusion_matrix(
         y_true=y_true_clean,
         y_pred=y_test,
         class_labels=["Died", "Survived"],
-        save_path="Analysis/Random_forest/conf_matrix_rf.png",
+        save_path="Analysis/Random_forest/conf_matrix_rf_test.png",
         show=True,
         title="Confusion Matrix - Test Set"
     )
@@ -39,7 +51,7 @@ def random_forest():
         y_true=y_true_clean,
         y_pred=y_test,
         class_labels=["Died", "Survived"],
-        save_path="Analysis/Random_Forest/classification_report_rf.png",
+        save_path="Analysis/Random_Forest/classification_report_rf_test.png",
         title="Classification Report - Random Forest"
     )
 
