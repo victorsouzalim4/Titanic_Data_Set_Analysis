@@ -4,6 +4,8 @@ from Utils.data_set_reader import csv_reader
 from Utils.pre_processing import treat_data
 from Utils.metrics_visual import save_confusion_matrix, save_classification_report_image, plot_roc_curve, plot_survival_distribution
 import pandas as pd 
+from sklearn.tree import export_text, plot_tree
+import matplotlib.pyplot as plt
 
 def random_forest():
 
@@ -92,5 +94,17 @@ def forest_training():
         random_state=42
     )
     model.fit(X_resampled, y_resampled)
+
+            # Seleciona uma árvore da floresta
+    estimator = model.estimators_[0]  # ou outro índice
+
+    # Texto explicando regras da árvore
+    tree_rules = export_text(estimator, feature_names=list(X_train.columns))
+    print(tree_rules)
+
+    # Visualização gráfica
+    plt.figure(figsize=(20, 10))
+    plot_tree(estimator, feature_names=X_train.columns, class_names=["Died", "Survived"], filled=True)
+    plt.show()
 
     return model
