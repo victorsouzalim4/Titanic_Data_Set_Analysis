@@ -49,7 +49,7 @@ def forest_training():
 
     model = RandomForestClassifier(
         n_estimators=200,
-        max_depth=10,
+        max_depth=7,
         min_samples_split=5,
         max_features='sqrt',
         random_state=42
