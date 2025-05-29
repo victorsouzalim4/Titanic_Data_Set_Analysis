@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import ConfusionMatrixDisplay, classification_report, accuracy_score, roc_curve, auc
 import os
 import pandas as pd
-
+import seaborn as sns
 
 def save_confusion_matrix(y_true, y_pred, class_labels, save_path, show=False, title="Confusion Matrix"):
     """
@@ -33,7 +33,6 @@ def save_confusion_matrix(y_true, y_pred, class_labels, save_path, show=False, t
 
     plt.close()
     print(f"[INFO] Confusion matrix saved to: {save_path}")
-
 
 def save_classification_report_image(y_true, y_pred, class_labels, save_path, title="Classification Report"):
     """
@@ -86,27 +85,26 @@ def save_classification_report_image(y_true, y_pred, class_labels, save_path, ti
 
     print(f"[INFO] Pretty classification report image saved to: {save_path}")
 
-
-def plot_roc_curve(y_true, y_proba, title='Curve ROC', save_path=None, show=True):
+def plot_roc_curve(y_true, y_proba, title='ROC Curve', save_path=None, show=True):
     """
-    Plota a Curva ROC com AUC para um modelo de classificação binária.
+    Plots the ROC Curve with AUC for a binary classification model.
 
-    Parâmetros:
-    - y_true: array-like com os rótulos reais (0 ou 1)
-    - y_proba: array-like com as probabilidades preditas da classe positiva (ex: .predict_proba()[:, 1])
-    - title: título do gráfico (opcional)
-    - save_path: caminho para salvar a imagem (opcional)
-    - show: se True, exibe o gráfico ao final (opcional)
+    Parameters:
+    - y_true: array-like, true binary labels (0 or 1)
+    - y_proba: array-like, predicted probabilities for the positive class (e.g., model.predict_proba()[:, 1])
+    - title: str, plot title (optional)
+    - save_path: str, path to save the image (optional)
+    - show: bool, if True, displays the plot (optional)
     """
 
-    # Calcula FPR, TPR e AUC
+    # Compute False Positive Rate (FPR), True Positive Rate (TPR), and thresholds
     fpr, tpr, _ = roc_curve(y_true, y_proba)
     roc_auc = auc(fpr, tpr)
 
-    # Plotagem
+    # Plot ROC Curve
     plt.figure(figsize=(8, 6))
     plt.plot(fpr, tpr, color='darkorange', lw=2, label=f'ROC curve (AUC = {roc_auc:.2f})')
-    plt.plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--', label='Aleatório (AUC = 0.5)')
+    plt.plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--', label='Random (AUC = 0.5)')
     plt.xlim([0.0, 1.0])
     plt.ylim([0.0, 1.05])
     plt.xlabel('False Positive Rate')
@@ -114,6 +112,35 @@ def plot_roc_curve(y_true, y_proba, title='Curve ROC', save_path=None, show=True
     plt.title(title)
     plt.legend(loc="lower right")
     plt.grid(True)
+
+    # Save or display the plot
+    if save_path:
+        plt.savefig(save_path, bbox_inches='tight')
+    if show:
+        plt.show()
+    else:
+        plt.close()
+
+def plot_survival_distribution(train_labels, title='Survival Distribution (Train Set)', save_path=None, show=True):
+    """
+    Plots the distribution of the 'Survived' variable for the training set.
+
+    Parameters:
+    - train_labels: Series or array-like of training set labels (0 or 1)
+    - title: plot title (optional)
+    - save_path: path to save the plot (optional)
+    - show: if True, displays the plot
+    """
+    train_df = pd.DataFrame({'Survived': train_labels})
+
+    # Plot
+    plt.figure(figsize=(6, 5))
+    sns.countplot(data=train_df, x='Survived', palette='Set2')
+    plt.title(title)
+    plt.xlabel('Survived')
+    plt.ylabel('Count')
+    plt.xticks(ticks=[0, 1], labels=['Died', 'Survived'])
+    plt.grid(True, axis='y', linestyle='--', alpha=0.5)
 
     if save_path:
         plt.savefig(save_path, bbox_inches='tight')
