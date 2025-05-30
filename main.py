@@ -1,4 +1,4 @@
-from Algorithms.random_forest import random_forest
+from Algorithms.Random_forest.random_forest import random_forest
 
 random_forest()
 
