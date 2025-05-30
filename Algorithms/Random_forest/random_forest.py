@@ -16,7 +16,12 @@ def random_forest():
     essential_columns = ["Pclass", "Sex", "Age", "SibSp", "Parch"]
     label_encoding_columns = ["Sex"]
 
-    data_test = treat_data(data_test, columns_to_remove, essential_columns, label_encoding_columns)
+    data_test = treat_data(
+        data = data_test, 
+        columns_to_remove = columns_to_remove, 
+        essential_columns = essential_columns, 
+        label_encoding_columns = label_encoding_columns
+    )
 
     model = forest_training()
 
@@ -64,7 +69,12 @@ def forest_training():
     essential_columns = ["Survived", "Pclass", "Sex", "Age", "SibSp", "Parch"]
     label_encoding_columns = ["Sex"]
 
-    data_train = treat_data(data_train, columns_to_remove, essential_columns, label_encoding_columns)
+    data_test = treat_data(
+        data = data_test, 
+        columns_to_remove = columns_to_remove, 
+        essential_columns = essential_columns, 
+        label_encoding_columns = label_encoding_columns
+    )
 
     X_train = data_train.drop('Survived', axis=1)
     y_train = data_train['Survived']
