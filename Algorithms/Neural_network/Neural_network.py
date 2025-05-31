@@ -95,7 +95,7 @@ def train_model():
         show=True
     )
 
-    smote = SMOTE(random_state=42)
+    smote = SMOTE(random_state=42, k_neighbors=3)
     X_resampled, y_resampled = smote.fit_resample(X_train, y_train)
 
     plot_survival_distribution(
