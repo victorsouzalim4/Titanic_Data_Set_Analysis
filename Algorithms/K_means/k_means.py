@@ -9,11 +9,6 @@ from Utils.metrics_visual import(
 )
 from imblearn.over_sampling import SMOTE
 from sklearn.cluster import KMeans
-from sklearn.manifold import TSNE
-from sklearn.metrics import silhouette_score, silhouette_samples
-import matplotlib.pyplot as plt
-import matplotlib.cm as cm
-import numpy as np
 import pandas as pd
 import os
 
@@ -54,7 +49,7 @@ def k_means():
     # Clustering
     kmeans_model = train_model()
     cluster_labels_test = kmeans_model.predict(X_test)
-    
+
 
     plot_silhouette(X_test, cluster_labels_test, "Analysis/KMeans/silhouette_kmeans_test.png",
                     title="Gráfico de Silhueta - Teste (K-Means)")
@@ -100,7 +95,7 @@ def train_model():
     smote = SMOTE(random_state=42)
     X_resampled, y_resampled = smote.fit_resample(X_train, y_train)
 
-    kmeans = KMeans(n_clusters=2, random_state=42)
+    kmeans = KMeans(n_clusters=12, random_state=42)
     cluster_labels = kmeans.fit_predict(X_resampled)
 
     print("Rótulos dos clusters atribuídos pelo K-Means:")
