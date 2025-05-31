@@ -69,8 +69,8 @@ def forest_training():
     essential_columns = ["Survived", "Pclass", "Sex", "Age", "SibSp", "Parch"]
     label_encoding_columns = ["Sex"]
 
-    data_test = treat_data(
-        data = data_test, 
+    data_train = treat_data(
+        data = data_train, 
         columns_to_remove = columns_to_remove, 
         essential_columns = essential_columns, 
         label_encoding_columns = label_encoding_columns
