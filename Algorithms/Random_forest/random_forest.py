@@ -60,6 +60,8 @@ def random_forest():
         title="Classification Report - Random Forest"
     )
 
+    return y_test
+
 
 def forest_training():
 

@@ -66,6 +66,8 @@ def neural_network():
         title="Classification Report - Neural Network"
     )
 
+    return y_true_metrics
+
 def train_model():
 
     data_train = csv_reader("Titanic_data_set/train.csv")
