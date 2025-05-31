@@ -52,10 +52,10 @@ def k_means():
 
 
     plot_silhouette(X_test, cluster_labels_test, "Analysis/KMeans/silhouette_kmeans_test.png",
-                    title="Gráfico de Silhueta - Teste (K-Means)")
+                    title="Silhouette - Test (K-Means)")
 
     plot_tsne(X_test, cluster_labels_test, "Analysis/KMeans/tsne_kmeans_test.png",
-              title="Clusters no conjunto de TESTE (K-Means treinado no treino)")
+              title="Clusters - Test (K-Means)")
 
     df_test = pd.DataFrame(X_test)
     df_test['Survived'] = y_test

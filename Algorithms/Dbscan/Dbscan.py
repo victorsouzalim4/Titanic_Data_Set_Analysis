@@ -53,10 +53,10 @@ def dbscan():
 
     # Visualizações
     plot_silhouette(X_test, cluster_labels_test, "Analysis/DBSCAN/silhouette_dbscan_test.png",
-                    title="Gráfico de Silhueta - Teste (DBSCAN)")
+                    title="Silhouette - Test (DBSCAN)")
 
     plot_tsne(X_test, cluster_labels_test, "Analysis/DBSCAN/tsne_dbscan_test.png",
-              title="Clusters no conjunto de TESTE (DBSCAN)")
+              title="Clusters - Test (DBSCAN)")
 
     df_test = pd.DataFrame(X_test)
     df_test['Survived'] = y_test

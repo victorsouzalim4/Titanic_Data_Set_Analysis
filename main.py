@@ -4,4 +4,5 @@ from Algorithms.K_means.k_means import k_means
 from Algorithms.Dbscan.Dbscan import dbscan
 import numpy as np
 
+k_means()
 dbscan()
