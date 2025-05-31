@@ -42,7 +42,7 @@ def neural_network():
     #     y_true=y_true_clean,
     #     y_proba=y_proba_test,
     #     title='Curva ROC - Random Forest (Test)',
-    #     save_path='Analysis/Random_forest/roc_curve_rf_test.png',
+    #     save_path='Analysis/Neural_network/roc_curve_rf_test.png',
     #     show=True
     # )
 
@@ -53,7 +53,7 @@ def neural_network():
         y_true=y_true_metrics,
         y_pred=y_test_metrics,
         class_labels=["Died", "Survived"],
-        save_path="Analysis/Random_forest/conf_matrix_rf_test.png",
+        save_path="Analysis/Neural_network/conf_matrix_rf_test.png",
         show=True,
         title="Confusion Matrix - Test Set"
     )
@@ -62,7 +62,7 @@ def neural_network():
         y_true=y_true_metrics,
         y_pred=y_test_metrics,
         class_labels=["Died", "Survived"],
-        save_path="Analysis/Random_forest/classification_report_rf_test.png",
+        save_path="Analysis/Neural_network/classification_report_rf_test.png",
         title="Classification Report - Random Forest"
     )
 
@@ -91,7 +91,7 @@ def train_model():
     plot_survival_distribution(
         train_labels=y_train,
         title='Original Survival Distribution - Train Set',
-        save_path='Analysis/Random_Forest/original_distribution.png',
+        save_path='Analysis/Neural_network/original_distribution.png',
         show=True
     )
 
@@ -101,7 +101,7 @@ def train_model():
     plot_survival_distribution(
         train_labels=y_resampled,
         title='After SMOTE (Oversampling)',
-        save_path='Analysis/Random_Forest/after_smote_distribution.png',
+        save_path='Analysis/Neural_network/after_smote_distribution.png',
         show=True
     )
 
