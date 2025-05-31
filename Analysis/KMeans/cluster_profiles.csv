@@ -1,0 +1,3 @@
+Cluster,Age,SibSp,Parch,Sex_female,Sex_male,Pclass_1,Pclass_2,Pclass_3,Survived
+0,0.17,-0.23,-0.38,0.34,0.66,0.33,0.26,0.41,0.4
+1,-0.7,0.94,1.55,0.56,0.44,0.14,0.29,0.58,0.45

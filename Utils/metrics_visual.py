@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
 from sklearn.metrics import ConfusionMatrixDisplay, classification_report, accuracy_score, roc_curve, auc
+import matplotlib.cm as cm
+import numpy as np
 import os
 import pandas as pd
 import seaborn as sns
@@ -148,3 +150,84 @@ def plot_survival_distribution(train_labels, title='Survival Distribution (Train
         plt.show()
     else:
         plt.close()
+
+def plot_silhouette(X, labels, save_path, title="Gráfico de Silhueta"):
+    from sklearn.metrics import silhouette_samples, silhouette_score
+
+    score = silhouette_score(X, labels)
+    sample_silhouette_values = silhouette_samples(X, labels)
+    n_clusters = len(set(labels))
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+    y_lower = 10
+    for i in range(n_clusters):
+        ith_cluster_silhouette_values = sample_silhouette_values[labels == i]
+        ith_cluster_silhouette_values.sort()
+        size_cluster_i = ith_cluster_silhouette_values.shape[0]
+        y_upper = y_lower + size_cluster_i
+        color = cm.nipy_spectral(float(i) / n_clusters)
+        ax.fill_betweenx(np.arange(y_lower, y_upper), 0, ith_cluster_silhouette_values,
+                         facecolor=color, edgecolor=color, alpha=0.7)
+        ax.text(-0.05, y_lower + 0.5 * size_cluster_i, f"Cluster {i}")
+        y_lower = y_upper + 10
+
+    ax.set_title(title)
+    ax.set_xlabel("Coeficiente de Silhueta")
+    ax.set_ylabel("Clusters")
+    ax.axvline(x=score, color="red", linestyle="--", label="Média")
+    ax.set_yticks([])
+    ax.set_xlim([-0.2, 1])
+    ax.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.savefig(save_path)
+    plt.close()
+
+
+def plot_tsne(X, labels, save_path, title="Visualização TSNE"):
+    from sklearn.manifold import TSNE
+
+    tsne = TSNE(n_components=2, random_state=42)
+    X_tsne = tsne.fit_transform(X)
+
+    plt.figure(figsize=(8, 6))
+    plt.scatter(X_tsne[:, 0], X_tsne[:, 1], c=labels, cmap='viridis', alpha=0.7)
+    plt.title(title)
+    plt.xlabel("TSNE-1")
+    plt.ylabel("TSNE-2")
+    plt.grid(True)
+    plt.tight_layout()
+    plt.savefig(save_path)
+    plt.close()
+
+
+def plot_contingency_matrix(df, save_path):
+    contingency = pd.crosstab(df['Cluster'], df['Survived'])
+    plt.figure(figsize=(6, 4))
+    sns.heatmap(contingency, annot=True, fmt='d', cmap='Blues')
+    plt.title("Matriz de Contingência: Cluster x Survived")
+    plt.xlabel("Classe Real (Survived)")
+    plt.ylabel("Cluster")
+    plt.tight_layout()
+    plt.savefig(save_path)
+    plt.close()
+    return contingency
+
+
+def save_cluster_profile(df, save_csv_path, save_table_path):
+    cluster_profile = df.groupby('Cluster').mean().round(2)
+    cluster_profile.to_csv(save_csv_path)
+
+    fig, ax = plt.subplots(figsize=(10, 2 + 0.5 * len(cluster_profile)))
+    ax.axis('off')
+    tbl = ax.table(cellText=cluster_profile.values,
+                   colLabels=cluster_profile.columns,
+                   rowLabels=cluster_profile.index,
+                   cellLoc='center',
+                   loc='center')
+    tbl.scale(1, 1.5)
+    plt.title("Perfil Médio por Cluster")
+    plt.tight_layout()
+    plt.savefig(save_table_path)
+    plt.close()
+    return cluster_profile
