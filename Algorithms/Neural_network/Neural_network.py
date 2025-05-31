@@ -63,7 +63,7 @@ def neural_network():
         y_pred=y_test_metrics,
         class_labels=["Died", "Survived"],
         save_path="Analysis/Neural_network/classification_report_rf_test.png",
-        title="Classification Report - Random Forest"
+        title="Classification Report - Neural Network"
     )
 
 def train_model():
