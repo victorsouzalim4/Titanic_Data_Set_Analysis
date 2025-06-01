@@ -47,35 +47,6 @@ def Apriori():
 
     print(rules_filtered)
 
-    rules_filtered.to_csv("regras_filtradas.csv", index=False)
-
-    #scatter plot
-    plt.figure(figsize=(10,6))
-    plt.scatter(rules_filtered['support'], rules_filtered['confidence'],
-                s=rules_filtered['lift']*50, alpha=0.6)
-    plt.xlabel('Support')
-    plt.ylabel('Confidence')
-    plt.title('Regras de Associação')
-    plt.grid(True)
-    plt.savefig("Analysis/Apriori/scatter_regras.png")  # 🔽 salva o gráfico
-    plt.show()
-
-    
-    #heatmap
-    pivot = rules_filtered.pivot_table(index='antecedents', columns='consequents', values='lift', fill_value=0)
-
-    plt.figure(figsize=(14,10))  # um pouco maior
-    sns.heatmap(pivot, annot=True, cmap='coolwarm', fmt=".1f")
-
-    plt.title('Lift entre antecedents e consequents', fontsize=14)
-    plt.xticks(rotation=45, ha='right')   # rotaciona colunas
-    plt.yticks(rotation=0)                # mantém linhas horizontais
-    plt.tight_layout()                    # evita corte de rótulos
-
-    plt.savefig("heatmap_regras_legivel.png", dpi=300)
-    plt.show()
-
-
 
     #graph
     G = nx.DiGraph()
@@ -92,9 +63,57 @@ def Apriori():
 
     nx.draw(G, pos, with_labels=True, node_color='skyblue', edge_color=weights,
             edge_cmap=plt.cm.viridis, width=2, arrowsize=15)
-    plt.title('Rede de Regras de Associação')
+    plt.title('Associaiton Rules Network')
     plt.savefig("Analysis/Apriori/grafo_regras.png")  # 🔽 salva o gráfico
     plt.show()
+
+    rules_filtered['antecedents'] = rules_filtered['antecedents'].apply(lambda x: ', '.join(x))
+    rules_filtered['consequents'] = rules_filtered['consequents'].apply(lambda x: ', '.join(x))
+
+    rules_filtered.to_csv("regras_filtradas.csv", index=False)
+
+    #scatter plot
+    plt.figure(figsize=(10,6))
+    plt.scatter(rules_filtered['support'], rules_filtered['confidence'],
+                s=rules_filtered['lift']*50, alpha=0.6)
+    plt.xlabel('Support')
+    plt.ylabel('Confidence')
+    plt.title('Association Rules Distribution')
+    plt.grid(True)
+    plt.savefig("Analysis/Apriori/scatter_regras.png")  # 🔽 salva o gráfico
+    plt.show()
+
+    
+    #heatmap
+    pivot = rules_filtered.pivot_table(index='antecedents', columns='consequents', values='lift', fill_value=0)
+
+    plt.figure(figsize=(14,10))  # um pouco maior
+    sns.heatmap(pivot, annot=True, cmap='coolwarm', fmt=".1f")
+
+    plt.title('Lift Heatmap', fontsize=14)
+    plt.xticks(rotation=45, ha='right')   # rotaciona colunas
+    plt.yticks(rotation=0)                # mantém linhas horizontais
+    plt.tight_layout()                    # evita corte de rótulos
+
+    plt.savefig("Analysis/Apriori/heatmap_regras_legivel.png", dpi=300)
+    plt.show()
+
+    #table
+    fig, ax = plt.subplots(figsize=(12, len(rules_filtered) * 0.5 + 1))  # ajusta altura com base no nº de linhas
+    ax.axis('off')  # remove os eixos
+    tabela = ax.table(cellText=rules_filtered.values,
+                      colLabels=rules_filtered.columns,
+                      cellLoc='center',
+                      loc='center')
+    
+    tabela.auto_set_font_size(False)
+    tabela.set_fontsize(9)
+    tabela.scale(1.2, 1.2)  # aumenta tamanho geral da tabela
+    plt.title("Association Rules Table", fontsize=14, pad=20)
+    plt.tight_layout()
+    plt.savefig("Analysis/Apriori/table", dpi=300)
+    plt.close()
+
 
 
     rules_filtered.sort_values(by='lift', ascending=False).style.background_gradient(cmap='YlGnBu')
