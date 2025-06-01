@@ -7,7 +7,8 @@ def treat_data(
         essential_columns = None, 
         label_encoding_columns = None,
         one_hot_columns = None,
-        columns_to_scale = None
+        columns_to_scale = None,
+        binning_encoding = None
     ):
 
     if columns_to_remove:
@@ -27,5 +28,14 @@ def treat_data(
     if columns_to_scale:
         scaler = StandardScaler()
         data[columns_to_scale] = scaler.fit_transform(data[columns_to_scale])
+
+    if binning_encoding:
+        output_column = binning_encoding[0]
+        input_column = binning_encoding[1]
+        labels_column = binning_encoding[2]
+
+        for output_name, input_name, labels in zip(output_column, input_column, labels_column):
+            data[output_name] = pd.qcut(data[input_name], q=len(labels), labels=labels, duplicates='drop')
+            data.drop(columns=input_name, inplace=True)
 
     return data
