@@ -1,67 +1,81 @@
 
 # 🚢 Análise da Base de Dados do Titanic com Inteligência Artificial
 
-Este projeto tem como objetivo estudar e aplicar diferentes técnicas de **Inteligência Artificial (IA)** e **Machine Learning** sobre a clássica base de dados do [Titanic (Kaggle)](https://www.kaggle.com/c/titanic), analisando os fatores que influenciam na sobrevivência dos passageiros.
+Este projeto tem como objetivo aplicar e comparar diferentes técnicas de **Inteligência Artificial (IA)**, **Machine Learning** e **mineração de dados** sobre a clássica base do [Titanic (Kaggle)](https://www.kaggle.com/c/titanic), a fim de entender os fatores que mais influenciaram a sobrevivência dos passageiros.
 
-Além de algoritmos clássicos, este repositório também explora uma implementação **manual de rede neural** como benchmark comparativo.
-
----
-
-## 🧩 Técnicas de IA utilizadas
-
-- Regressão Logística
-- Árvores de Decisão (Decision Tree)
-- Florestas Aleatórias (Random Forest)
-- KNN
-- Redes Neurais (Backpropagation manual, via submódulo)
-- Análise exploratória de dados (EDA)
-- Visualização de resultados
+Além de modelos supervisionados, também são exploradas abordagens não supervisionadas, regras de associação e uma **rede neural implementada do zero** via submódulo.
 
 ---
 
-## 📁 Estrutura do Projeto
+## 🧠 Algoritmos Aplicados
+
+### 🔍 Classificação Supervisionada
+- Random Forest
+- Rede Neural (implementação manual com backpropagation)
+
+### 📊 Agrupamento (Clustering)
+- K-Means
+- DBSCAN
+
+### 📚 Regras de Associação
+- Apriori (via `mlxtend`)
+
+---
+
+## 🧪 Objetivos
+
+- Prever a variável `Survived` com diferentes algoritmos supervisionados.
+- Identificar agrupamentos naturais de passageiros por perfis semelhantes.
+- Extrair regras frequentes e associações interpretáveis com foco explicativo.
+- Comparar desempenho, interpretabilidade, limitações e aplicabilidades de cada abordagem.
+
+---
+
+## 🧩 Estrutura do Projeto
 
 ```
 Titanic_Data_Set_Analysis/
 │
-├── main.py                         ← Execução principal dos testes
-├── models/                         ← Algoritmos de IA implementados
-│   ├── decision_tree.py
-│   ├── logistic_regression.py
-│   └── ...
-├── analysis/                       ← Códigos de exploração e visualização
-│   └── ...
-├── data/                           ← Dados CSVs (se aplicável)
+├── main.py                         ← Execução principal de todos os testes
+|
+├── Analysis/                       ← Análises e visualizações
+│   ├── Apriori/
+│   ├── DBSCAN/
+│   ├── Kmeans/
+|   ├── Neural_network/
+|   ├── Random_forest/
 │
 ├── Algorithms/                     ← Submódulo: Rede Neural manual
-│   ├── forward.py
-│   ├── neuron.py
-│   └── ...
+│   ├── Apriori/
+│   ├── DBSCAN/
+│   ├── Kmeans/
+|   ├── Neural_network/
+|   ├── Random_forest/
+│
+├── Utils/                          ← Utilitários comuns
+│   ├── data_set_reader.py
+│   ├── pre_processing.py
+│   └── metrics_visual.py
+│
+├── Titanic_data_set/              ← Arquivos CSV de treino e teste
+│
+│
 ├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## 🧠 Submódulo `Algorithms/`: Rede Neural Manual
+## 🔧 Como Executar
 
-Este projeto utiliza um submódulo Git chamado `Algorithms/`, que contém uma implementação didática de uma **rede neural com backpropagation feita do zero** em Python. Essa rede é utilizada como comparativo com os modelos tradicionais.
-
-> O submódulo está vinculado ao repositório:  
-> [victorsouzalim4/Neural_Networks_Sub](https://github.com/victorsouzalim4/Neural_Networks_Sub)
-
----
-
-## 🧪 Como rodar o projeto
-
-### 📥 1. Clone o projeto com submódulos
+### 📥 1. Clone o repositório com submódulo
 
 ```bash
-git clone --recurse-submodules https://github.com/seu-usuario/Titanic_Data_Set_Analysis.git
+git clone --recurse-submodules https://github.com/victorsouzalim4/Titanic_Data_Set_Analysis.git
 cd Titanic_Data_Set_Analysis
 ```
 
-> Esqueceu o `--recurse-submodules`? Execute:
+> Esqueceu o `--recurse-submodules`? Use:
 ```bash
 git submodule update --init --recursive
 ```
@@ -70,13 +84,13 @@ git submodule update --init --recursive
 
 ### 🧬 2. Crie e ative o ambiente virtual
 
-#### Windows:
+#### Windows
 ```bash
 python -m venv venv
 venv\Scripts\activate
 ```
 
-#### Linux/macOS:
+#### Linux/macOS
 ```bash
 python3 -m venv venv
 source venv/bin/activate
@@ -98,38 +112,48 @@ pip install -r requirements.txt
 python main.py
 ```
 
-Você verá as métricas de desempenho, erros médios, classificações e comparações entre os modelos testados, incluindo a rede neural.
+As análises incluem:
+- Métricas de classificação (acurácia, F1, ROC)
+- Matrizes de confusão
+- Visualizações t-SNE e silhueta
+- Matriz de contingência entre clusters
+- Regras de associação e grafo interativo
 
 ---
 
-## 🛠 Sobre o submódulo
+## 📂 Sobre o Submódulo `Algorithms/`
 
-Se você fizer alterações dentro de `Algorithms/`, lembre-se de:
+Este submódulo Git contém uma **rede neural totalmente implementada do zero**, com forward propagation, retropropagação e suporte a múltiplas camadas. Ele é utilizado neste projeto como benchmark interpretável e educativo.
 
-1. Committar dentro do submódulo:
-```bash
-cd Algorithms
-git add .
-git commit -m "Modificação na rede neural"
-git push origin main
-```
+> Submódulo vinculado ao repositório:  
+> [victorsouzalim4/Neural_Networks_Sub](https://github.com/victorsouzalim4/Neural_Networks_Sub)
 
-2. Atualizar o commit referenciado no repositório principal:
-```bash
-cd ..
-git add Algorithms
-git commit -m "Atualiza commit do submódulo"
-git push
-```
+---
+
+## 📊 Resultados e Conclusões
+
+- **Random Forest** e **Rede Neural** obtiveram os melhores resultados classificatórios, com destaque para a rede em recall da classe minoritária (`Survived`).
+- **K-Means** e **DBSCAN** geraram agrupamentos interpretáveis, mas com baixa correlação com a variável alvo.
+- O algoritmo **Apriori** revelou regras fortes e explicáveis, como a forte associação entre `Sex_female` e `Survived_1`.
+
+---
+
+## 🧠 Lições Aprendidas
+
+Este projeto reforça a importância de combinar diferentes estratégias de IA:
+
+- Algoritmos supervisionados para previsão confiável.
+- Agrupamento para análise exploratória e descoberta de padrões.
+- Regras de associação para explicabilidade e descoberta de relações ocultas.
 
 ---
 
 ## 🤝 Contribuições
 
-Sugestões, issues e pull requests são bem-vindos. Este projeto é acadêmico e exploratório, com o objetivo de aprendizado prático em IA.
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues, sugerir melhorias ou enviar pull requests.
 
 ---
 
 ## 📜 Licença
 
-Este projeto está licenciado sob a [MIT License](LICENSE).
+Distribuído sob a licença [MIT](LICENSE).
