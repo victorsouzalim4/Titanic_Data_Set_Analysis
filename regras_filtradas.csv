@@ -1,141 +1,19 @@
 antecedents,consequents,support,confidence,lift
-frozenset({'Age range_Sênior'}),frozenset({'Pclass_1'}),0.15963855421686746,0.6463414634146342,2.1896465903434543
-frozenset({'Pclass_1'}),frozenset({'Parch range'}),0.2680722891566265,0.9081632653061225,1.0151858723287295
-frozenset({'Pclass_2'}),frozenset({'Sex_male'}),0.17771084337349397,0.6704545454545454,1.0858093126385808
-frozenset({'Pclass_2'}),frozenset({'Survived_0'}),0.1716867469879518,0.6477272727272727,1.0971706864564006
-frozenset({'Age range_Jovem'}),frozenset({'Pclass_3'}),0.16566265060240964,0.6395348837209303,1.4542848040777319
-frozenset({'Pclass_3'}),frozenset({'Sex_male'}),0.2891566265060241,0.6575342465753424,1.0648847310390912
-frozenset({'Pclass_3'}),frozenset({'Survived_0'}),0.2710843373493976,0.6164383561643836,1.044171093094772
-frozenset({'Age range_Adulto'}),frozenset({'Sex_male'}),0.1566265060240964,0.6419753086419753,1.0396868413128575
-frozenset({'Age range_Adulto'}),frozenset({'Survived_0'}),0.1566265060240964,0.6419753086419753,1.0874275636180397
-frozenset({'Age range_Adulto'}),frozenset({'Parch range'}),0.23493975903614459,0.9629629629629629,1.076443446813817
-frozenset({'Age range_Meia-idade'}),frozenset({'Survived_0'}),0.1566265060240964,0.6265060240963856,1.0612244897959184
-frozenset({'Age range_Sênior'}),frozenset({'Sex_male'}),0.1566265060240964,0.6341463414634146,1.027007733491969
-frozenset({'Age range_Sênior'}),frozenset({'Survived_0'}),0.1566265060240964,0.6341463414634146,1.0741662518666002
 frozenset({'Sex_female'}),frozenset({'Survived_1'}),0.37349397590361444,0.9763779527559056,2.383510884668828
 frozenset({'Survived_1'}),frozenset({'Sex_female'}),0.37349397590361444,0.9117647058823529,2.383510884668828
-frozenset({'Sex_male'}),frozenset({'Survived_0'}),0.5813253012048193,0.9414634146341463,1.5947237431557988
 frozenset({'Survived_0'}),frozenset({'Sex_male'}),0.5813253012048193,0.9846938775510204,1.594723743155799
-frozenset({'Sex_male'}),frozenset({'Parch range'}),0.572289156626506,0.926829268292683,1.0360515726369386
+frozenset({'Sex_male'}),frozenset({'Survived_0'}),0.5813253012048193,0.9414634146341463,1.5947237431557988
 frozenset({'Parch range'}),frozenset({'Sex_male'}),0.572289156626506,0.6397306397306397,1.0360515726369384
-frozenset({'Survived_0'}),frozenset({'Parch range'}),0.5542168674698795,0.9387755102040817,1.0494056208341922
+frozenset({'Sex_male'}),frozenset({'Parch range'}),0.572289156626506,0.926829268292683,1.0360515726369386
 frozenset({'Parch range'}),frozenset({'Survived_0'}),0.5542168674698795,0.6195286195286195,1.0494056208341922
-"frozenset({'Age range_Sênior', 'Parch range'})",frozenset({'Pclass_1'}),0.14759036144578314,0.6712328767123288,2.2739726027397262
-"frozenset({'Age range_Sênior', 'Pclass_1'})",frozenset({'Parch range'}),0.14759036144578314,0.9245283018867926,1.0334794485737884
-"frozenset({'Sex_female', 'Pclass_1'})",frozenset({'Survived_1'}),0.14156626506024098,0.9791666666666667,2.3903186274509807
-"frozenset({'Survived_1', 'Pclass_1'})",frozenset({'Sex_female'}),0.14156626506024098,0.9591836734693878,2.507472280250683
-"frozenset({'Sex_female', 'Pclass_1'})",frozenset({'Parch range'}),0.12951807228915663,0.8958333333333334,1.0014029180695847
-"frozenset({'Sex_male', 'Pclass_1'})",frozenset({'Survived_0'}),0.14457831325301204,0.9599999999999999,1.6261224489795916
-"frozenset({'Survived_0', 'Pclass_1'})",frozenset({'Sex_male'}),0.14457831325301204,0.9795918367346939,1.586460925833748
-"frozenset({'Sex_male', 'Pclass_1'})",frozenset({'Parch range'}),0.13855421686746988,0.9199999999999999,1.0284175084175082
-"frozenset({'Survived_0', 'Pclass_1'})",frozenset({'Parch range'}),0.14156626506024098,0.9591836734693878,1.0722187865045008
-"frozenset({'Sex_male', 'Pclass_2'})",frozenset({'Survived_0'}),0.1716867469879518,0.9661016949152543,1.6364579730197164
-"frozenset({'Survived_0', 'Pclass_2'})",frozenset({'Sex_male'}),0.1716867469879518,1.0,1.619512195121951
-frozenset({'Pclass_2'}),"frozenset({'Sex_male', 'Survived_0'})",0.1716867469879518,0.6477272727272727,1.1142251530852567
-"frozenset({'Sex_male', 'Pclass_2'})",frozenset({'Parch range'}),0.1716867469879518,0.9661016949152543,1.0799520630029105
-"frozenset({'Parch range', 'Pclass_2'})",frozenset({'Sex_male'}),0.1716867469879518,0.7307692307692307,1.1834896810506566
-frozenset({'Pclass_2'}),"frozenset({'Sex_male', 'Parch range'})",0.1716867469879518,0.6477272727272727,1.1318181818181818
-"frozenset({'Survived_0', 'Pclass_2'})",frozenset({'Parch range'}),0.1686746987951807,0.9824561403508771,1.098233799988186
-"frozenset({'Parch range', 'Pclass_2'})",frozenset({'Survived_0'}),0.1686746987951807,0.7179487179487178,1.216117216117216
-frozenset({'Pclass_2'}),"frozenset({'Survived_0', 'Parch range'})",0.1686746987951807,0.6363636363636362,1.1482213438735176
-"frozenset({'Sex_male', 'Age range_Jovem'})",frozenset({'Pclass_3'}),0.10542168674698796,0.6862745098039217,1.5605694332527535
-"frozenset({'Pclass_3', 'Age range_Jovem'})",frozenset({'Sex_male'}),0.10542168674698796,0.6363636363636364,1.0305986696230598
-"frozenset({'Parch range', 'Age range_Jovem'})",frozenset({'Pclass_3'}),0.14156626506024098,0.6527777777777778,1.484398782343988
-"frozenset({'Pclass_3', 'Age range_Adulto'})",frozenset({'Parch range'}),0.1355421686746988,0.9782608695652173,1.0935441370223977
-"frozenset({'Pclass_3', 'Sex_female'})",frozenset({'Survived_1'}),0.14457831325301204,0.9599999999999999,2.3435294117647056
-"frozenset({'Pclass_3', 'Survived_1'})",frozenset({'Sex_female'}),0.14457831325301204,0.8571428571428572,2.240719910011249
-"frozenset({'Sex_male', 'Pclass_3'})",frozenset({'Survived_0'}),0.26506024096385544,0.9166666666666667,1.5527210884353742
-"frozenset({'Pclass_3', 'Survived_0'})",frozenset({'Sex_male'}),0.26506024096385544,0.9777777777777779,1.5835230352303524
-frozenset({'Pclass_3'}),"frozenset({'Sex_male', 'Survived_0'})",0.26506024096385544,0.6027397260273973,1.0368372489175954
-"frozenset({'Sex_male', 'Pclass_3'})",frozenset({'Parch range'}),0.2620481927710843,0.90625,1.013047138047138
-"frozenset({'Pclass_3', 'Parch range'})",frozenset({'Sex_male'}),0.2620481927710843,0.6692307692307692,1.083827392120075
-"frozenset({'Pclass_3', 'Survived_0'})",frozenset({'Parch range'}),0.24397590361445784,0.9000000000000001,1.006060606060606
-"frozenset({'Pclass_3', 'Parch range'})",frozenset({'Survived_0'}),0.24397590361445784,0.6230769230769231,1.0554160125588696
-"frozenset({'Sex_female', 'Age range_Jovem'})",frozenset({'Survived_1'}),0.10240963855421686,0.9714285714285713,2.371428571428571
-"frozenset({'Survived_1', 'Age range_Jovem'})",frozenset({'Sex_female'}),0.10240963855421686,0.7391304347826086,1.9322149948647722
-"frozenset({'Sex_male', 'Age range_Jovem'})",frozenset({'Survived_0'}),0.11746987951807229,0.7647058823529412,1.2953181272509005
-"frozenset({'Survived_0', 'Age range_Jovem'})",frozenset({'Sex_male'}),0.11746987951807229,0.9750000000000001,1.5790243902439025
-"frozenset({'Sex_male', 'Age range_Adulto'})",frozenset({'Survived_0'}),0.1566265060240964,1.0,1.693877551020408
-"frozenset({'Survived_0', 'Age range_Adulto'})",frozenset({'Sex_male'}),0.1566265060240964,1.0,1.619512195121951
-frozenset({'Age range_Adulto'}),"frozenset({'Sex_male', 'Survived_0'})",0.1566265060240964,0.6419753086419753,1.104330582741636
-"frozenset({'Sex_male', 'Age range_Adulto'})",frozenset({'Parch range'}),0.1566265060240964,1.0,1.1178451178451179
-"frozenset({'Age range_Adulto', 'Parch range'})",frozenset({'Sex_male'}),0.1566265060240964,0.6666666666666666,1.0796747967479674
-frozenset({'Age range_Adulto'}),"frozenset({'Sex_male', 'Parch range'})",0.1566265060240964,0.6419753086419753,1.1217673814165041
-"frozenset({'Survived_0', 'Age range_Adulto'})",frozenset({'Parch range'}),0.1566265060240964,1.0,1.1178451178451179
-"frozenset({'Age range_Adulto', 'Parch range'})",frozenset({'Survived_0'}),0.1566265060240964,0.6666666666666666,1.129251700680272
-frozenset({'Age range_Adulto'}),"frozenset({'Survived_0', 'Parch range'})",0.1566265060240964,0.6419753086419753,1.158346752549651
-"frozenset({'Sex_male', 'Age range_Meia-idade'})",frozenset({'Survived_0'}),0.15060240963855423,1.0,1.693877551020408
-"frozenset({'Survived_0', 'Age range_Meia-idade'})",frozenset({'Sex_male'}),0.15060240963855423,0.9615384615384616,1.5572232645403377
-frozenset({'Age range_Meia-idade'}),"frozenset({'Sex_male', 'Survived_0'})",0.15060240963855423,0.6024096385542169,1.0362694300518136
-"frozenset({'Sex_male', 'Age range_Meia-idade'})",frozenset({'Parch range'}),0.14457831325301204,0.9599999999999999,1.073131313131313
-"frozenset({'Age range_Meia-idade', 'Parch range'})",frozenset({'Sex_male'}),0.14457831325301204,0.6486486486486487,1.0504943968358602
-"frozenset({'Survived_0', 'Age range_Meia-idade'})",frozenset({'Parch range'}),0.14759036144578314,0.9423076923076923,1.0533540533540533
-"frozenset({'Age range_Meia-idade', 'Parch range'})",frozenset({'Survived_0'}),0.14759036144578314,0.6621621621621622,1.1216216216216217
-"frozenset({'Sex_male', 'Age range_Sênior'})",frozenset({'Survived_0'}),0.1566265060240964,1.0,1.693877551020408
-"frozenset({'Survived_0', 'Age range_Sênior'})",frozenset({'Sex_male'}),0.1566265060240964,1.0,1.619512195121951
-frozenset({'Age range_Sênior'}),"frozenset({'Sex_male', 'Survived_0'})",0.1566265060240964,0.6341463414634146,1.0908631366106407
-"frozenset({'Sex_male', 'Age range_Sênior'})",frozenset({'Parch range'}),0.14457831325301204,0.923076923076923,1.0318570318570317
-"frozenset({'Age range_Sênior', 'Parch range'})",frozenset({'Sex_male'}),0.14457831325301204,0.6575342465753424,1.0648847310390912
-"frozenset({'Survived_0', 'Age range_Sênior'})",frozenset({'Parch range'}),0.14457831325301204,0.923076923076923,1.0318570318570317
-"frozenset({'Age range_Sênior', 'Parch range'})",frozenset({'Survived_0'}),0.14457831325301204,0.6575342465753424,1.1137824993010903
+frozenset({'Survived_0'}),frozenset({'Parch range'}),0.5542168674698795,0.9387755102040817,1.0494056208341922
 "frozenset({'Sex_female', 'Parch range'})",frozenset({'Survived_1'}),0.3192771084337349,0.9906542056074765,2.4183617372182518
-"frozenset({'Survived_1', 'Parch range'})",frozenset({'Sex_female'}),0.3192771084337349,0.9380530973451326,2.4522332938471187
-frozenset({'Sex_female'}),"frozenset({'Survived_1', 'Parch range'})",0.3192771084337349,0.8346456692913385,2.4522332938471183
+"frozenset({'Parch range', 'Survived_1'})",frozenset({'Sex_female'}),0.3192771084337349,0.9380530973451326,2.4522332938471187
+frozenset({'Sex_female'}),"frozenset({'Parch range', 'Survived_1'})",0.3192771084337349,0.8346456692913385,2.4522332938471183
 frozenset({'Survived_1'}),"frozenset({'Sex_female', 'Parch range'})",0.3192771084337349,0.7794117647058824,2.4183617372182518
-"frozenset({'Sex_male', 'Survived_0'})",frozenset({'Parch range'}),0.5512048192771084,0.9481865284974093,1.0599256816873397
-"frozenset({'Sex_male', 'Parch range'})",frozenset({'Survived_0'}),0.5512048192771084,0.963157894736842,1.631471535982814
 "frozenset({'Survived_0', 'Parch range'})",frozenset({'Sex_male'}),0.5512048192771084,0.9945652173913043,1.610710498409332
+"frozenset({'Parch range', 'Sex_male'})",frozenset({'Survived_0'}),0.5512048192771084,0.963157894736842,1.631471535982814
+"frozenset({'Survived_0', 'Sex_male'})",frozenset({'Parch range'}),0.5512048192771084,0.9481865284974093,1.0599256816873397
+frozenset({'Parch range'}),"frozenset({'Survived_0', 'Sex_male'})",0.5512048192771084,0.6161616161616161,1.0599256816873397
+frozenset({'Survived_0'}),"frozenset({'Parch range', 'Sex_male'})",0.5512048192771084,0.9336734693877551,1.631471535982814
 frozenset({'Sex_male'}),"frozenset({'Survived_0', 'Parch range'})",0.5512048192771084,0.8926829268292682,1.6107104984093317
-frozenset({'Survived_0'}),"frozenset({'Sex_male', 'Parch range'})",0.5512048192771084,0.9336734693877551,1.631471535982814
-frozenset({'Parch range'}),"frozenset({'Sex_male', 'Survived_0'})",0.5512048192771084,0.6161616161616161,1.0599256816873397
-"frozenset({'Sex_female', 'Parch range', 'Pclass_1'})",frozenset({'Survived_1'}),0.12650602409638553,0.9767441860465116,2.384404924760602
-"frozenset({'Survived_1', 'Parch range', 'Pclass_1'})",frozenset({'Sex_female'}),0.12650602409638553,1.0,2.614173228346457
-"frozenset({'Sex_female', 'Pclass_1'})","frozenset({'Survived_1', 'Parch range'})",0.12650602409638553,0.875,2.5707964601769913
-"frozenset({'Survived_1', 'Pclass_1'})","frozenset({'Sex_female', 'Parch range'})",0.12650602409638553,0.8571428571428571,2.65954606141522
-"frozenset({'Sex_male', 'Survived_0', 'Pclass_1'})",frozenset({'Parch range'}),0.13855421686746988,0.9583333333333334,1.0712682379349046
-"frozenset({'Sex_male', 'Parch range', 'Pclass_1'})",frozenset({'Survived_0'}),0.13855421686746988,1.0,1.693877551020408
-"frozenset({'Survived_0', 'Parch range', 'Pclass_1'})",frozenset({'Sex_male'}),0.13855421686746988,0.9787234042553191,1.5850544888427607
-"frozenset({'Sex_male', 'Pclass_1'})","frozenset({'Survived_0', 'Parch range'})",0.13855421686746988,0.9199999999999999,1.66
-"frozenset({'Survived_0', 'Pclass_1'})","frozenset({'Sex_male', 'Parch range'})",0.13855421686746988,0.9387755102040817,1.6403866809881849
-"frozenset({'Sex_male', 'Survived_0', 'Pclass_2'})",frozenset({'Parch range'}),0.1686746987951807,0.9824561403508771,1.098233799988186
-"frozenset({'Sex_male', 'Parch range', 'Pclass_2'})",frozenset({'Survived_0'}),0.1686746987951807,0.9824561403508771,1.6641604010025062
-"frozenset({'Survived_0', 'Parch range', 'Pclass_2'})",frozenset({'Sex_male'}),0.1686746987951807,1.0,1.619512195121951
-"frozenset({'Sex_male', 'Pclass_2'})","frozenset({'Survived_0', 'Parch range'})",0.1686746987951807,0.9491525423728814,1.7126013264554163
-"frozenset({'Survived_0', 'Pclass_2'})","frozenset({'Sex_male', 'Parch range'})",0.1686746987951807,0.9824561403508771,1.7167128347183747
-"frozenset({'Parch range', 'Pclass_2'})","frozenset({'Sex_male', 'Survived_0'})",0.1686746987951807,0.7179487179487178,1.2350205925335458
-frozenset({'Pclass_2'}),"frozenset({'Sex_male', 'Survived_0', 'Parch range'})",0.1686746987951807,0.6363636363636362,1.154495777446597
-"frozenset({'Pclass_3', 'Sex_female', 'Survived_1'})",frozenset({'Parch range'}),0.12951807228915663,0.8958333333333334,1.0014029180695847
-"frozenset({'Pclass_3', 'Parch range', 'Survived_1'})",frozenset({'Sex_female'}),0.12951807228915663,0.8775510204081632,2.2940703840591357
-"frozenset({'Pclass_3', 'Sex_female', 'Parch range'})",frozenset({'Survived_1'}),0.12951807228915663,1.0,2.4411764705882355
-"frozenset({'Pclass_3', 'Survived_1'})","frozenset({'Sex_female', 'Parch range'})",0.12951807228915663,0.7678571428571429,2.3825100133511348
-"frozenset({'Pclass_3', 'Sex_female'})","frozenset({'Parch range', 'Survived_1'})",0.12951807228915663,0.8599999999999999,2.526725663716814
-"frozenset({'Sex_male', 'Survived_0', 'Pclass_3'})",frozenset({'Parch range'}),0.24397590361445784,0.9204545454545454,1.0289256198347108
-"frozenset({'Sex_male', 'Pclass_3', 'Parch range'})",frozenset({'Survived_0'}),0.24397590361445784,0.9310344827586208,1.577058409570725
-"frozenset({'Pclass_3', 'Survived_0', 'Parch range'})",frozenset({'Sex_male'}),0.24397590361445784,1.0,1.619512195121951
-"frozenset({'Sex_male', 'Pclass_3'})","frozenset({'Survived_0', 'Parch range'})",0.24397590361445784,0.8437500000000001,1.5224184782608698
-"frozenset({'Pclass_3', 'Survived_0'})","frozenset({'Sex_male', 'Parch range'})",0.24397590361445784,0.9000000000000001,1.5726315789473686
-"frozenset({'Pclass_3', 'Parch range'})","frozenset({'Sex_male', 'Survived_0'})",0.24397590361445784,0.6230769230769231,1.0718214428058987
-"frozenset({'Sex_male', 'Survived_0', 'Age range_Jovem'})",frozenset({'Parch range'}),0.10542168674698796,0.8974358974358975,1.0031943365276699
-"frozenset({'Sex_male', 'Parch range', 'Age range_Jovem'})",frozenset({'Survived_0'}),0.10542168674698796,0.8333333333333335,1.4115646258503403
-"frozenset({'Survived_0', 'Parch range', 'Age range_Jovem'})",frozenset({'Sex_male'}),0.10542168674698796,1.0,1.619512195121951
-"frozenset({'Sex_male', 'Age range_Jovem'})","frozenset({'Survived_0', 'Parch range'})",0.10542168674698796,0.6862745098039217,1.2382779198635978
-"frozenset({'Survived_0', 'Age range_Jovem'})","frozenset({'Sex_male', 'Parch range'})",0.10542168674698796,0.8750000000000001,1.5289473684210528
-"frozenset({'Sex_male', 'Survived_0', 'Age range_Adulto'})",frozenset({'Parch range'}),0.1566265060240964,1.0,1.1178451178451179
-"frozenset({'Sex_male', 'Age range_Adulto', 'Parch range'})",frozenset({'Survived_0'}),0.1566265060240964,1.0,1.693877551020408
-"frozenset({'Survived_0', 'Age range_Adulto', 'Parch range'})",frozenset({'Sex_male'}),0.1566265060240964,1.0,1.619512195121951
-"frozenset({'Sex_male', 'Age range_Adulto'})","frozenset({'Survived_0', 'Parch range'})",0.1566265060240964,1.0,1.8043478260869565
-"frozenset({'Survived_0', 'Age range_Adulto'})","frozenset({'Sex_male', 'Parch range'})",0.1566265060240964,1.0,1.7473684210526315
-"frozenset({'Age range_Adulto', 'Parch range'})","frozenset({'Sex_male', 'Survived_0'})",0.1566265060240964,0.6666666666666666,1.1468048359240068
-frozenset({'Age range_Adulto'}),"frozenset({'Sex_male', 'Survived_0', 'Parch range'})",0.1566265060240964,0.6419753086419753,1.1646765162247859
-"frozenset({'Sex_male', 'Survived_0', 'Age range_Meia-idade'})",frozenset({'Parch range'}),0.14457831325301204,0.9599999999999999,1.073131313131313
-"frozenset({'Sex_male', 'Age range_Meia-idade', 'Parch range'})",frozenset({'Survived_0'}),0.14457831325301204,1.0,1.693877551020408
-"frozenset({'Survived_0', 'Age range_Meia-idade', 'Parch range'})",frozenset({'Sex_male'}),0.14457831325301204,0.9795918367346939,1.586460925833748
-"frozenset({'Sex_male', 'Age range_Meia-idade'})","frozenset({'Survived_0', 'Parch range'})",0.14457831325301204,0.9599999999999999,1.732173913043478
-"frozenset({'Survived_0', 'Age range_Meia-idade'})","frozenset({'Sex_male', 'Parch range'})",0.14457831325301204,0.923076923076923,1.6129554655870444
-"frozenset({'Age range_Meia-idade', 'Parch range'})","frozenset({'Sex_male', 'Survived_0'})",0.14457831325301204,0.6486486486486487,1.1158101106287635
-"frozenset({'Sex_male', 'Survived_0', 'Age range_Sênior'})",frozenset({'Parch range'}),0.14457831325301204,0.923076923076923,1.0318570318570317
-"frozenset({'Sex_male', 'Age range_Sênior', 'Parch range'})",frozenset({'Survived_0'}),0.14457831325301204,1.0,1.693877551020408
-"frozenset({'Survived_0', 'Age range_Sênior', 'Parch range'})",frozenset({'Sex_male'}),0.14457831325301204,1.0,1.619512195121951
-"frozenset({'Sex_male', 'Age range_Sênior'})","frozenset({'Survived_0', 'Parch range'})",0.14457831325301204,0.923076923076923,1.6655518394648827
-"frozenset({'Survived_0', 'Age range_Sênior'})","frozenset({'Sex_male', 'Parch range'})",0.14457831325301204,0.923076923076923,1.6129554655870444
-"frozenset({'Age range_Sênior', 'Parch range'})","frozenset({'Sex_male', 'Survived_0'})",0.14457831325301204,0.6575342465753424,1.1310951806373766
