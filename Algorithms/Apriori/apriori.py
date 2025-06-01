@@ -7,12 +7,12 @@ def Apriori():
 
     true_labels = pd.read_csv('Titanic_data_set/rf_mod_Solution.csv')
     data_test = csv_reader("Titanic_data_set/test.csv")
+    data_test['Survived'] = true_labels['Survived']
 
     columns_to_remove = ["PassengerId", "Ticket", "Cabin", "Embarked", "Name", "Fare"]
-    essential_columns = ["Pclass", "Sex", "Age", "SibSp", "Parch"]
+    essential_columns = ["Pclass", "Sex", "Age", "SibSp", "Parch", "Survived"]
     binning_encoding = [["Age range"], ["Age"], [['Jovem', 'Adulto', 'Meia-idade', 'Sênior']]]
-    one_hot_encoding = ["Pclass", "Age range"]
-    label_encoding = ["Sex"]
+    one_hot_encoding = ["Pclass", "Age range", "Sex", "Survived"]
 
     data_test = treat_data(
         data = data_test, 
@@ -24,7 +24,6 @@ def Apriori():
     data_test = treat_data(
         data = data_test,
         one_hot_columns = one_hot_encoding,
-        label_encoding_columns = label_encoding
     )
 
     data_test['Parch range'] = data_test['Parch'].apply(lambda x: 0 if x >= 2 else 1)
@@ -38,4 +37,11 @@ def Apriori():
     frequent_itemsets = apriori(data_test, min_support=0.1, use_colnames=True)
     rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=0.6)
 
-    print(rules)
+    rules_filtered = rules[
+    (rules['lift'] > 1)
+    ][['antecedents', 'consequents', 'support', 'confidence', 'lift']]
+
+
+    print(rules_filtered)
+
+    rules_filtered.to_csv("regras_filtradas.csv", index=False)
